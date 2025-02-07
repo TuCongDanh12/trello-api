@@ -1,6 +1,3 @@
-
-
-
 import { MongoClient, ServerApiVersion } from 'mongodb'
 import { env } from './environment.js'
 //Khởi tạo 1 đối tượng trelloDatabaseInstace ban đầu là null (vì chưa connect)
@@ -31,6 +28,6 @@ export const GET_DB = () => {
 
 //Đóng kết nối tới database khi cần
 export const CLOSE_DB = async () => {
-  console.log('code chạy vào close')
+  // console.log('code chạy vào close')
   await mongoClientInstance.close()
 }
