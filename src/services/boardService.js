@@ -13,5 +13,5 @@ const createNew = async (reqBody) => {
 }
 
 export const boardService = {
-  createNew,
+  createNew
 }
