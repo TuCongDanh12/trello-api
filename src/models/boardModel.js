@@ -15,7 +15,7 @@ const BOARD_COLLECTION_SCHEMA = Joi.object({
 
   creatAt: Joi.date().timestamp('javascript').default(Date.now()),
   updatedAt: Joi.date().timestamp('javascript').default(null),
-  _destroy: Joi.boolean().default(false),
+  _destroy: Joi.boolean().default(false)
 })
 
 const validateBeforeCreate = async (data) => {
@@ -43,9 +43,20 @@ const findOneById = async (id) => {
   }
 }
 
+const getDetails = async (id) => {
+  try {
+    return await GET_DB()
+      .collection(BOARD_COLLECTION_NAME)
+      .findOne({ _id: new ObjectId(id) })
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 export const boardModel = {
   BOARD_COLLECTION_NAME,
   BOARD_COLLECTION_SCHEMA,
   createNew,
   findOneById,
+  getDetails
 }
